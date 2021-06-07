@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run dev",
     "build": "tsc",
-    "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts"
+    "start": "ts-node-dev --respawn --pretty --transpile-only src/index.ts"
   },
   "engines": { "node": "15.10.0" },
   "keywords": [],
