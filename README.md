@@ -1,3 +1,8 @@
+### Despliegue en HEROKU 
+_Se proporciona el endpoint al Swagger de la API, ahi podran apreciar las demas rutas_
+
+ministeriodesarrolloproductivo.herokuapp.com/api/docs
+
 ### API REST - Ministerio de Desarrollo Productivo 📋
 
 _Por medio de los servicios expuestos por este ministerio, las diferentes Empresas del Sector Comercio podran enviar reportes mensuales de sus productos. De la misma manera, la Secreteria de Comercio Interior podra pedir reportes de una empresa en particular para poder cumplir con sus funciones de avisar a esta, de posibles incumplimientos_
@@ -31,7 +36,7 @@ _3. Corra el servidor_
 ```
 npm run dev
 ```
-## Rutas y Peticiones ⚙️
+## Rutas y Peticiones ⚙
 - **Swagger**
     - ```GET localhost:3000/api/docs```
 - **Reportes**
