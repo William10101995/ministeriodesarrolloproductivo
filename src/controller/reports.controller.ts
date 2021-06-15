@@ -23,7 +23,7 @@ export const createreports: RequestHandler = async (req, res) => {
     const response = await instacereports.createreports(datareports, req.userId);
     res.status(200).send(response);
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(500).send(error);
   }
 };
 
@@ -34,7 +34,7 @@ export const deletereports: RequestHandler = async (req, res) => {
     const response = await instacereports.deletereports(id_report);
     res.status(200).send(response);
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(500).send(error);
   }
 };
 
@@ -46,6 +46,6 @@ export const updatereports: RequestHandler = async (req, res) => {
     const response = await instacereports.updatereports(id_report, products);
     res.status(200).send(response);
   } catch (error) {
-    res.status(500).send(error.message);
+    res.status(500).send(error);
   }
 };

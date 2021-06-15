@@ -33,11 +33,12 @@ export const userBusinessLogin: RequestHandler = async (req, res) => {
     const responseServiceBusiness = await instanceUserService.userLogin(
       dataUserBusiness
     );
+    const dataResponse = await instanceUserService.getDataUser(dataUserBusiness)
     res
       .header("token", responseServiceBusiness)
       .status(200)
-      .json("¡Bienvenido!");
+      .json(dataResponse)
   } catch (error) {
-    res.status(500).json(error.message);
+    res.status(500).json(error);
   }
 };

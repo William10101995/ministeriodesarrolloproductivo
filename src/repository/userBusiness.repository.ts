@@ -65,4 +65,13 @@ export default class userService {
     );
     return token;
   }
+  //Obtengo datos del usuario 
+  async getDataUser (user: IUserBusiness){
+    const dataUser = await UserBusiness.findOne({cuit : user.cuit});
+    if (dataUser){
+      return dataUser
+    }else{
+      throw new Error("No se encontraro datos!")
+    }
+  }
 }
