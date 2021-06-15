@@ -1,0 +1,32 @@
+lenguage: node_js
+
+cache:
+  directories: 
+    - node_modules
+    - ~/.npm
+
+node_js:
+  - '15'
+
+git: 
+  depth: 3
+
+branches:
+  only: 
+  - CI
+
+script:
+  - npm run test
+
+notifications:
+  slack: isutn2021:uoXNzqAfXzQLVl27ZgVGZRxm
+
+deploy:
+  provide: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: 9dcd7384-e9da-4ede-86bc-e8c3908e0168
+  app: ingenieriadesofware
+  on: 
+    repo: William10101995/ministeriodesarrolloproductivo
+    branch: CI
