@@ -8,6 +8,7 @@ import * as middleware from "./Middlewares/middlewares";
 import reportsRoutes from "./routes/reports.routes";
 import userBusinesRoutes from "./routes/usersBusiness.routes";
 import swaggerRoutes from "./routes/swagger.routes";
+import estRoutes from './routes/estadisticas.routes'
 //Import Database
 import * as db from "./config/database.connection";
 
@@ -29,5 +30,5 @@ app.use(middleware.url);
 app.use(swaggerRoutes);
 app.use(userBusinesRoutes);
 app.use(reportsRoutes);
-
+app.use(estRoutes)
 export default app;

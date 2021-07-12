@@ -159,4 +159,5 @@ router.post(
 
 //Actualizar datos de usuario
 router.put("/api/userbusiness", CtrlUserBusiness.updateUserBusiness);
+
 export default router;

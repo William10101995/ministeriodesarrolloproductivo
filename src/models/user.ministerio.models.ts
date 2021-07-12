@@ -5,13 +5,10 @@ import bcrypt from 'bcryptjs'
 
 
 //Interface 
-export interface IUserBusiness extends Document{
-    cuit : Number;
-    razon_social : string;
-    industria : string;
+export interface IUserMinisterio extends Document{
+    cuit : number;
+    apellidoynombre : string;
     email : string; 
-    tel : Number;
-    ciudad : string;
     password : string;
     encriptarPassword(password : string) : Promise<string>;
     validatePassword(password : string) : Promise<boolean>; 
@@ -19,7 +16,7 @@ export interface IUserBusiness extends Document{
 }
 
 //Schema
-const userBusinessSchema = new Schema<IUserBusiness> ({
+const userMinisterioSchema = new Schema<IUserMinisterio> ({
     cuit : {
         type : Number,
         unique : true,
@@ -27,31 +24,17 @@ const userBusinessSchema = new Schema<IUserBusiness> ({
         require: true,
         min : [11, 'El CUIT debe tener 11 digitos']
     },
-    razon_social : {
+    apellidoynombre : {
         type : String,
         require : true,
         trim: true,
     },
-    industria : {
-        type: String,
-        require: true,
-        trim: true,
-    },
+    
     email : {
         type : String,
         unique : true,
         require : true,
         trim: true,
-    },
-    tel : {
-        type : Number,
-        unique :true,
-        trim : true,
-    },
-    ciudad : {
-        type : String,
-        require : true,
-        trim : true,
     },
     password : {
         type : String,
@@ -62,15 +45,15 @@ const userBusinessSchema = new Schema<IUserBusiness> ({
 })
 
 //Encripto contraseña
-userBusinessSchema.methods.encriptarPassword = async (password : string) : Promise<string> =>{
+userMinisterioSchema.methods.encriptarPassword = async (password : string) : Promise<string> =>{
     const salt = await bcrypt.genSalt(10)
     return bcrypt.hash(password, salt)
 };
 
 //Valido contraseña
-userBusinessSchema.methods.validatePassword = async function(password : string): Promise<boolean> {
+userMinisterioSchema.methods.validatePassword = async function(password : string): Promise<boolean> {
     return await bcrypt.compare(password, this.password)
 }
 
 
-export default model<IUserBusiness>('UserBusiness', userBusinessSchema)
+export default model<IUserMinisterio>('UserMinisterio', userMinisterioSchema)
