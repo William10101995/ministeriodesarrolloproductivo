@@ -89,13 +89,6 @@ export const validatePutReports = [
   body("*.cantidad_vend")
     .notEmpty()
     .withMessage("¡La cantidad vendida es requerida!"),
-  body("*.codigo_ean").custom((cod_ean, { req }) => {
-    return Product.findOne({ codigo_ean: cod_ean }).then((product) => {
-      if (product !== null) {
-        return Promise.reject("¡El codigo EAN ya existe!");
-      }
-    });
-  }),
 ];
 
 //Manejo Errores
